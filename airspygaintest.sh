@@ -25,3 +25,4 @@ sudo systemctl restart airspy_adsb
 python /home/pi/plots/airspystats.py
 
 cp /usr/local/share/tar1090/html/stats/*.png .
+ 
