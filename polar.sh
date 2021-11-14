@@ -4,9 +4,9 @@ set -e
 #Note - settings here are written to polar.conf on first run - values there will be used in preference to these for subsequent runs.
 
 #Set receiver location and height above sea level here - only required if not using heywahtsthat data.
-lat=29.90304
-lon=-89.991104
-rh=13.5
+lat=
+lon=
+rh=
 
 #Set altitude limits
 
@@ -23,7 +23,7 @@ mlat=yes
 
 #Set raspberry pi IP or hostname here:
 
-pi=192.168.0.180
+pi=raspberrypi
 
 #Set raspberry pi username here:
 
@@ -31,7 +31,7 @@ un=pi
 
 #Set heywhatsthat.com site ID here - Note that the script will not run without it. If you want to use a new ID, delete any existing upintheair.json first
 
-hwt=FN8IWE33
+hwt=
 
 # Keep data - yes/no
 
