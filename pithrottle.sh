@@ -50,3 +50,4 @@ echo -n "   Now: "
 ((($STATUS&SOFT_TEMPLIMIT)!=0)) && echo "${BAD}" || echo "${GOOD}"
 echo -n "   Run: "
 ((($STATUS&HAS_SOFT_TEMPLIMIT)!=0)) && echo "${BAD}" || echo "${GOOD}"
+
