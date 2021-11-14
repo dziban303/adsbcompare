@@ -455,3 +455,4 @@ html = htmlstart + table + htmlend
 file = open(os.path.join(outdir,"index.html"), "w")
 file.write(html)
 file.close()
+
