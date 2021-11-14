@@ -147,3 +147,4 @@ plot    '/tmp/first' u (1):($2+$3) w boxplot lc "red" notitle, \
 EOF
 
 sudo cp /tmp/compare.png /run/dump1090-fa/compare.png
+
