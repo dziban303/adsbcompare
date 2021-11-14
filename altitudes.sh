@@ -1,5 +1,8 @@
 #!/bin/bash
 
+date=$(date -I)
+PWD=$(pwd)
+
 #set range of plot
 
 range=230
@@ -46,6 +49,8 @@ EOF
 IP=$(ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
 
 sudo cp altmap.png /usr/share/skyaware/html/plots/altmap.png
+sudo cp altmap.png $PWD/results/$date/altmap-$date.png
 
-echo "Plot available at http://$IP/skyaware/data/altmap.png"
+echo "Plot available at http://$IP/skyaware/plots/altmap.png"
+
 
