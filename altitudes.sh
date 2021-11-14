@@ -4,7 +4,7 @@
 
 range=230
 
-echo "Plotting altidude heatmap for datafile $1"
+echo "Plotting altitude heatmap for datafile $1"
 
 nice -n 19 gnuplot -c /dev/stdin $1 $range <<"EOF"
 

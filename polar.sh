@@ -4,9 +4,9 @@ set -e
 #Note - settings here are written to polar.conf on first run - values there will be used in preference to these for subsequent runs.
 
 #Set receiver location and height above sea level here - only required if not using heywahtsthat data.
-lat=
-lon=
-rh=
+lat=29.90304
+lon=-89.991104
+rh=13.5
 
 #Set altitude limits
 
@@ -19,11 +19,11 @@ range=230
 
 # Include mlat aircraft? yes/no/mlat - setting to mlat will include only mlat results.
 
-mlat=no
+mlat=yes
 
 #Set raspberry pi IP or hostname here:
 
-pi=raspberrypi
+pi=192.168.0.180
 
 #Set raspberry pi username here:
 
@@ -31,7 +31,7 @@ un=pi
 
 #Set heywhatsthat.com site ID here - Note that the script will not run without it. If you want to use a new ID, delete any existing upintheair.json first
 
-hwt=
+hwt=FN8IWE33
 
 # Keep data - yes/no
 
@@ -602,33 +602,47 @@ fi
 sudo sh -c "cat > $dumpdir/index.html" <<EOF
 <!DOCTYPE html>
 <html>
+<link href="http://dzibania.pcriot.com/images/icons/bash_shell2.ico" rel="icon" type="image/ico" />
+<link rel="shortcut icon" href="data:image/png;base64,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" />
 <style>
+@font-face {
+  font-family: "Cascadia Code";
+  font-style: normal;
+  src:url(http://dzibania.pcriot.com/fonts/CascadiaCodePL.ttf);
+}
 img {
     max-width:100%;
     height:auto;
+}
+body { 
+    background-image: url(data:image/png;base64,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)!important;
+    color:cornflowerblue;
+    font-family:'Cascadia Code';
 }
 </style>
 <body>
 <h1>Heatmap plots created on $date at $date2 from $count samples.</h1>
 <h2>Plots include $mlatstat</h2>
-<p>Heatmap</p>
+<p><h3>Heatmap</h3></p>
 <img src="heatmap.png" alt="Heatmap">
-<p>Aircraft below $low feet</p>
+<p><h3>Aircraft below $low feet</h3></p>
 <img src="heatmap_low.png" alt="Low Altitude">
-<p>Aircraft above $high feet</p>
+<p><h3>Aircraft above $high feet</h3></p>
 <img src="heatmap_high.png" alt="High Altitude">
-<p>Azimuth/Elevation plot</p>
+<p><h3>Azimuth/Elevation plot</h3></p>
 <img src="elevation.png" alt="Elevation">
-<p>Range/Altitude</p>
+<p><h3>Range/Altitude</h3></p>
 <img src="altgraph.png" alt="Altitude">
-<p>Close Range Altitude</p>
+<p><h3>Close Range Altitude</h3></p>
 <img src="closealt.png" alt="Close Range">
-<p>Close Range</p>
+<p><h3>Close Range</h3></p>
 <img src="closerange.png" alt="Close Range">
-<p>Low altitude with map overlay</p>
+<p><h3>Low altitude with map overlay</h3></p>
 <img src="lowmap.png" alt="Map">
-<p>Plot with map overlay</p>
+<p><h3>Plot with map overlay</h3></p>
 <img src="mapol.png" alt="Map">
+<p><h3>Altitude Heatmap</h3></p>
+<img src="altmap.png" alt="Altitude Map">
 </body>
 </html>
 EOF
