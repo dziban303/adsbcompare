@@ -224,3 +224,4 @@ file.write(html)
 file.close()
 
 print("Plots can be found in " + outdir + " or via browser at <your-pi-address>/skyaware/plots/heatmaps.html")
+
