@@ -53,8 +53,7 @@ plot '< sort -t"," -k4 -r '.data u ($6):($5/1852):($4) with dots lc palette
 EOF
 
 IP=$(ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
-sudo mv altmap.png $output
-sudo cp $output /usr/share/skyaware/html/plots/altmap.png
-sudo mv $output $PWD/results/$date/$output
+sudo cp altmap.png $PWD/results/$date/$output
+sudo mv altmap.png /usr/share/skyaware/html/plots/altmap.png
 
 echo "Plot available at http://$IP/skyaware/plots/$output"
