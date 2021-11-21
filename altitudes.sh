@@ -50,6 +50,6 @@ EOF
 IP=$(ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
 sudo mv altmap.png $output
 sudo cp $output /usr/share/skyaware/html/plots/$output
-sudo cp $output $PWD/results/$date/$output
+sudo mv $output $PWD/results/$date/$output
 
 echo "Plot available at http://$IP/skyaware/plots/$output"
