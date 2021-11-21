@@ -3,12 +3,17 @@
 date=$(date -I)
 PWD=$(pwd)
 
-#set range of plot
+#set range of plot to 230nm if no value specified
+if [ ! $2 ]
+then
+  range=230
+else
+  range=$2
+fi
 
-range=230
 output=altmap-$(date -I)_$range.png
 
-echo "Plotting altitude heatmap for datafile $1"
+echo "Plotting altitude heatmap for datafile $1 with range $range"
 
 nice -n 19 gnuplot -c /dev/stdin $1 $range <<"EOF"
 
