@@ -6,6 +6,7 @@ PWD=$(pwd)
 #set range of plot
 
 range=230
+output=altmap-$(date -I)_$range.png
 
 echo "Plotting altitude heatmap for datafile $1"
 
@@ -47,10 +48,8 @@ plot '< sort -t"," -k4 -r '.data u ($6):($5/1852):($4) with dots lc palette
 EOF
 
 IP=$(ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
+sudo mv altmap.png $output
+sudo cp $output /usr/share/skyaware/html/plots/$output
+sudo cp $output $PWD/results/$date/$output
 
-sudo cp altmap.png /usr/share/skyaware/html/plots/altmap.png
-sudo cp altmap.png $PWD/results/$date/altmap-$date.png
-
-echo "Plot available at http://$IP/skyaware/plots/altmap.png"
-
-
+echo "Plot available at http://$IP/skyaware/plots/$output"
